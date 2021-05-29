@@ -11,21 +11,25 @@ public class Main {
                         Arrays.asList(1, 1, 1),
                         Arrays.asList(1, 1, 1),
                         Arrays.asList(1, 1, 1),
-                        Arrays.asList(null, 1, 3)
+                        Arrays.asList(null, null, 5)
                 )
         );
 
         List<List<Integer>> rowCounts = new ArrayList<>(
                 Arrays.asList(
                         Arrays.asList(null, null, 5),
+                        Arrays.asList(null, 1, 1),
                         Arrays.asList(null, null, 5),
-                        Arrays.asList(null, null, 5),
-                        Arrays.asList(null, null, 5),
+                        Arrays.asList(null, null, 1),
                         Arrays.asList(null, null, 5)
                 )
         );
 
         Board board = new Board(columnCounts, rowCounts);
+
+        System.out.println(board.print());
+
+        board.solveBoard();
 
         System.out.println(board.print());
     }
