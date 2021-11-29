@@ -55,11 +55,7 @@ public class Board {
     }
 
     private String printColumnCount(Integer count) {
-        if (count == null) {
-            return "   ";
-        }
-
-        return String.format(" %d ", count);
+        return count == null ? " " : count.toString();
     }
 
     private String printRowCount(Integer count) {
@@ -72,13 +68,13 @@ public class Board {
         for (Boolean state :
                 cellStates) {
             if (state == null) {
-                row.append("[ ]");
+                row.append(" ");
             }
             else if (state) {
-                row.append("[█]");
+                row.append("#");
             }
             else {
-                row.append("[x]");
+                row.append("-");
             }
         }
 
