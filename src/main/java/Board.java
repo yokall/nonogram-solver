@@ -35,7 +35,7 @@ public class Board {
             output.append(columnRowPadding);
 
             for (List<Integer> columnCount : columnCounts) {
-                output.append(printColumnCount(columnCount.get(i)));
+                output.append(printCount(columnCount.get(i)));
             }
 
             output.append("\n");
@@ -43,7 +43,7 @@ public class Board {
 
         for (int i = 0; i < rowCounts.size(); i++) {
             for (Integer count : rowCounts.get(i)) {
-                output.append(printRowCount(count)).append(" ");
+                output.append(printCount(count)).append(" ");
             }
 
             output.append(printRow(cells.get(i)));
@@ -54,11 +54,7 @@ public class Board {
         return output.toString();
     }
 
-    private String printColumnCount(Integer count) {
-        return count == null ? " " : count.toString();
-    }
-
-    private String printRowCount(Integer count) {
+    private String printCount(Integer count) {
         return count == null ? " " : count.toString();
     }
 

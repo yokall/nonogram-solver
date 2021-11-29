@@ -41,7 +41,7 @@ class BoardTest {
         @Test
         @DisplayName("Print a blank board")
         void blankCells() {
-            String expected = "          1  1  1    \n       3  1  1  1    \n       1  1  1  1  5 \n    5 [ ][ ][ ][ ][ ]\n  1 1 [ ][ ][ ][ ][ ]\n    5 [ ][ ][ ][ ][ ]\n    1 [ ][ ][ ][ ][ ]\n    5 [ ][ ][ ][ ][ ]\n";
+            String expected = "       111 \n      3111 \n      11115\n    5      \n  1 1      \n    5      \n    1      \n    5      \n";
 
             Assertions.assertEquals(expected, board.print());
         }
@@ -56,7 +56,7 @@ class BoardTest {
                 }
             }
 
-            String expected = "          1  1  1    \n       3  1  1  1    \n       1  1  1  1  5 \n    5 [█][█][█][█][█]\n  1 1 [█][█][█][█][█]\n    5 [█][█][█][█][█]\n    1 [█][█][█][█][█]\n    5 [█][█][█][█][█]\n";
+            String expected = "       111 \n      3111 \n      11115\n    5 #####\n  1 1 #####\n    5 #####\n    1 #####\n    5 #####\n";
 
             Assertions.assertEquals(expected, board.print());
         }
@@ -70,7 +70,7 @@ class BoardTest {
                     row.set(i, false);
                 }
             }
-            String expected = "          1  1  1    \n       3  1  1  1    \n       1  1  1  1  5 \n    5 [x][x][x][x][x]\n  1 1 [x][x][x][x][x]\n    5 [x][x][x][x][x]\n    1 [x][x][x][x][x]\n    5 [x][x][x][x][x]\n";
+            String expected = "       111 \n      3111 \n      11115\n    5 -----\n  1 1 -----\n    5 -----\n    1 -----\n    5 -----\n";
 
             Assertions.assertEquals(expected, board.print());
         }
