@@ -29,7 +29,8 @@ public class Main {
 
         System.out.println(board.print());
 
-        board.solveBoard();
+        BoardSolver boardSolver = new BoardSolver(board);
+        boardSolver.solveBoard();
 
         System.out.println(board.print());
     }

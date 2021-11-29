@@ -10,6 +10,12 @@ public class Board {
     public List<List<Boolean>> getCells() {
         return cells;
     }
+    public List<List<Integer>> getColumnCounts() {
+        return columnCounts;
+    }
+    public List<List<Integer>> getRowCounts() {
+        return rowCounts;
+    }
 
     public Board(List<List<Integer>> columnCounts, List<List<Integer>> rowCounts) {
         this.columnCounts = columnCounts;
@@ -75,42 +81,5 @@ public class Board {
         }
 
         return row.toString();
-    }
-
-    public void solveBoard() {
-        // foreach row
-        for (int i = 0; i < cells.size(); i++) {
-            List<Boolean> row = cells.get(i);
-
-            solveLine(row, rowCounts.get(i));
-        }
-
-        // foreach column
-        for (int x = 0; x < cells.get(0).size(); x++) {
-            List<Boolean> column = new ArrayList<>();
-
-            for (List<Boolean> row : cells) {
-                column.add(row.get(x));
-            }
-
-            column = solveLine(column, columnCounts.get(x));
-
-            for (int c = 0; c < column.size(); c++) {
-                cells.get(c).set(x, column.get(c));
-            }
-        }
-    }
-
-    public List<Boolean> solveLine(List<Boolean> line, List<Integer> counts) {
-        for (Integer count :
-                counts) {
-            if (count != null && count == line.size()) {
-                for (int i = 0; i < line.size(); i++) {
-                    line.set(i, true);
-                }
-            }
-        }
-
-        return line;
     }
 }
