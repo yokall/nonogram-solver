@@ -1,15 +1,19 @@
 package Nonogram::Clues;
 
-use YAML::Tiny;
+use JSON qw(from_json);
+use Path::Tiny;
 
 sub parse_clues_file {
     my ($filename) = @_;
 
-    my $yaml = YAML::Tiny->read($filename);
-    die "Failed to parse $filename: " . YAML::Tiny->errstr unless $yaml;
+    # Read JSON from file
+    my $json_data = path($filename)->slurp;
 
-    my @row_clues    = map { [ split /,/, $_ ] } @{ $yaml->[0]->{row_clues} };
-    my @column_clues = map { [ split /,/, $_ ] } @{ $yaml->[0]->{column_clues} };
+    # Parse JSON
+    my $data = from_json($json_data);
+
+    my @row_clues    = @{ $data->{row_clues} };
+    my @column_clues = @{ $data->{column_clues} };
 
     return ( \@row_clues, \@column_clues );
 }
