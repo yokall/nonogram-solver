@@ -1,0 +1,13 @@
+[PerlTidy]
+select = **/*.{pl,pm,t}
+argv = -pbp -nst -l=180
+
+# Be strict on library code
+[PerlCritic strict]
+select = **/*.pm
+argv = -brutal
+
+# Be gentle on scripts
+[PerlCritic lenient]
+select = **/*.{pl,t}
+argv = -gentle
